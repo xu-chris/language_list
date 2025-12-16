@@ -5,7 +5,7 @@ defmodule LanguageList.MixProject do
     [
       app: :language_list,
       version: "2.0.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
@@ -25,7 +25,6 @@ defmodule LanguageList.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:poison, "~> 3.1"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end

@@ -18,12 +18,15 @@ defmodule LanguageList do
   def all_data do
     file_path = Application.app_dir(:language_list, "priv/languages.json")
 
+    decoders = [
+      object_push: fn key, value, acc -> [{String.to_existing_atom(key), value} | acc] end
+    ]
+
     with {:ok, file} <- File.read(file_path),
-         {:ok, languages} <- Poison.decode(file, keys: :atoms)
-      do
-        languages
-      else
-        _ -> raise "Could not read internal languages.json file!"
+         {languages, :ok, ""} <- JSON.decode(file, :ok, decoders) do
+      languages
+    else
+      _ -> raise "Could not read internal languages.json file!"
     end
   end
 
@@ -51,7 +54,7 @@ defmodule LanguageList do
   @doc false
   def all_common_data!, do: all_common_data()
 
-  @doc"""
+  @doc """
   Returns list of all language names.
 
   ## Examples
@@ -131,5 +134,4 @@ defmodule LanguageList do
         {:ok, result}
     end
   end
-
 end
