@@ -4,14 +4,18 @@ defmodule LanguageList.MixProject do
   def project do
     [
       app: :language_list,
-      version: "2.0.0",
+      version: "3.0.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       description: description(),
       package: package(),
       deps: deps(),
       name: "language_list",
-      source_url: "https://github.com/GunnarPDX/language_list"
+      source_url: "https://github.com/GunnarPDX/language_list",
+      docs: [
+        main: "readme",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -25,7 +29,7 @@ defmodule LanguageList.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false, warn_if_outdated: true}
     ]
   end
 
@@ -42,7 +46,7 @@ defmodule LanguageList.MixProject do
       # This option is only needed when you don't want to use the OTP application name
       name: "language_list",
       # These are the default files included in the package
-      files: ~w(lib priv .formatter.exs mix.exs README* LICENSE*),
+      files: ~w(lib priv .formatter.exs mix.exs README* LICENSE* usage-rules.md),
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/GunnarPDX/language_list"}
     ]
