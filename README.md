@@ -21,7 +21,7 @@ end
 
 Documentation can be found at [https://hexdocs.pm/language_list](https://hexdocs.pm/language_list).
 
-## Usage:
+## Usage
 
 Standard requests will return a list of maps or strings.
 
@@ -113,6 +113,6 @@ nil
 
 ```
 
-## TODO:
+## TODO
 
-[] add native language names to json file.
+[ ] add native language names to json file.
